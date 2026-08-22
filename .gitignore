@@ -216,3 +216,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# dataset
+data/raw
+
+# generated output
+outputs/figures/*
+#except these specific reference images, kept intentionally
+!outputs/figures/raw_data_visualization.png
