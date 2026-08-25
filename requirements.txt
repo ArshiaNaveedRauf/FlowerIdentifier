@@ -1,3 +1,6 @@
 matplotlib
 tensorflow
 keras 
+pytest
+scikit-learn 
+seaborn

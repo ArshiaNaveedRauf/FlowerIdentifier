@@ -4,3 +4,7 @@ img_height=224
 img_width=224
 batch_size=32
 factor= (-0.2,0.3)
+rescale= 1/255
+num_class= 5
+dropout_rate= 0.3
+epochs= 100
