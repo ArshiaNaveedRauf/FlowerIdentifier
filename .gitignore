@@ -224,3 +224,4 @@ data/raw
 outputs/figures/*
 #except these specific reference images, kept intentionally
 !outputs/figures/raw_data_visualization.png
+!outputs/figures/augmented_data_visualized.png
