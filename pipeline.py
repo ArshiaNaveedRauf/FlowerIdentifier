@@ -2,7 +2,6 @@ from src.data.data_loader import DataLoader
 from src.visualization.raw_data_visualizer import RawDataVisualizer
 from src.data.data_augmenter import DataAugmenter
 from src.models.convolution_neural_network import ConvolutionalNeuralNetwork
-from src.models.model_evaluator import ModelEvaluator
 from src.models.model_persistence import ModelPersistence
 from config import validation_spl, batch_size,img_width,img_height, epochs
 
@@ -13,7 +12,6 @@ class FlowerRecognitionPipeline:
         self.raw_visualizer= RawDataVisualizer()
         self.augmenter= DataAugmenter()
         self.model = ConvolutionalNeuralNetwork(self.augmenter)
-        self.evaluator= ModelEvaluator()
         self.persistence= ModelPersistence()
 
 
@@ -25,4 +23,4 @@ class FlowerRecognitionPipeline:
         self.raw_visualizer.raw_data_visualizer(training_data)
         self.model.train_model(training_data,validation_data,epochs)
         self.persistence.save_model(self.model.model,'models_saved/cnn_model.keras')
-        self.evaluator.model_evaluator(class_names,validation_data, self.model.model)
+

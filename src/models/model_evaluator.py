@@ -9,9 +9,14 @@ class ModelEvaluator:
         pass
 
     def true_labels_and_predictions(self,validation_data,model):
-        true_lables= np.concatenate([labels for images, labels, in validation_data],axis=0)
-        predictions= model.predict(validation_data)
-        prediction_labels= np.argmax(predictions,axis=1) 
+        true_lables=[]
+        prediction_labels=[]
+        for images, labels in validation_data:
+            predictions= model.predict(images, verbose=0)
+            prediction_labels.append(np.argmax(predictions,axis=1))
+            true_lables.append(labels.numpy())
+        true_lables= np.concatenate(true_lables,axis=0)
+        prediction_labels= np.concatenate(prediction_labels,axis=0) 
         return true_lables, prediction_labels
 
     def accuracy_report(self,true_lables,prediction_labels):
